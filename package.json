@@ -1,0 +1,31 @@
+{
+  "name": "ens-events",
+  "version": "1.0.0",
+  "description": "ENS contract events",
+  "main": "app.js",
+  "scripts": {
+    "test": "node ./test/index.test | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodoufu/ens-events.git"
+  },
+  "keywords": [
+    "ENS",
+    "Ethereum",
+    "Smart",
+    "contract"
+  ],
+  "author": "Rodolfo Araujo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rodoufu/ens-events/issues"
+  },
+  "homepage": "https://github.com/rodoufu/ens-events#readme",
+  "dependencies": {
+    "async": "^2.6.2",
+    "express": "^4.16.4",
+    "tape": "^4.10.1",
+    "web3": "^1.0.0-beta.46"
+  }
+}
