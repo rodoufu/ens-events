@@ -1,0 +1,12 @@
+version: '3'
+services:
+	cacheDb:
+		container_name: cacheDb
+		image: "redis"
+		stdin_open: true
+		tty: true
+		ports:
+			- "6379:6379"
+		expose:
+			- "6379"
+
