@@ -5,7 +5,10 @@ function getPeriodRate(period) {
 	// Time in seconds for each block
 	const rate = config.block_rate;
 
-	period = period.toLowerCase();
+	if (!period) {
+		return -1;
+	}
+	period = period.trim().toLowerCase();
 	let elapsedSeconds = 1;
 	if (period == "week") {
 		elapsedSeconds *= 7;
@@ -59,10 +62,16 @@ EthClient.prototype.getEvents = function getEvents(period, unitsfrom, unitsTo, c
 
 	this.getBlockNumber((err, blockNumber) => {
 		if (!err) {
-			this.contract.getPastEvents("allEvents", {
-				fromBlock: blockNumber - convertToBlockNumber(period, unitsfrom),
-				toBlock: blockNumber - convertToBlockNumber(period, unitsTo)
-			}, callback);
+			let fromValue = convertToBlockNumber(period, unitsfrom);
+			let toValue = convertToBlockNumber(period, unitsTo);
+			if (fromValue != -1 && toValue != -1) {			
+				this.contract.getPastEvents("allEvents", {
+					fromBlock: blockNumber - fromValue,
+					toBlock: blockNumber - toValue
+				}, callback);
+			} else {
+				callback(new Error("Invalid period: " + period);
+			}
 		} else {
 			callback(err, null);
 		}
