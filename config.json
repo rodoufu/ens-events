@@ -1,4 +1,6 @@
 {
-	"network_address" : "ws://localhost:8546"
+	"network_address" : "ws://localhost:7545",
+	"parity_network_address" : "ws://localhost:8546",
+	"ganache_network_address" : "ws://localhost:7545"
 }
 
