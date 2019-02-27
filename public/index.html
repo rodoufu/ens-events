@@ -24,19 +24,29 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">        
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">
-                        <select class="form-control" id="periodType" ng-model="periodType">
-                            <option ng-repeat="it in periodTypes" value="{{it | lowercase}}">{{it}}</option>
-                        </select>
-                    </a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="number" min="0" ng-model="periodValue" placeholder="{{periodType + 's'}}" aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit" title="Get events form last {{periodValue}} {{periodType + (periodValue > 1 ? 's' : '')}}">Get</button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form method="POST" action="/api/events" class="form-inline my-2 my-lg-0 container-fluid">
+                <ul class="navbar-nav mr-auto container-fluid">
+                    <li class="nav-item active">
+                        <a class="nav-link input-fullwidth" href="#">
+                            <select class="form-control input-fullwidth" name="period" id="period" required ng-model="period">
+                                <option ng-repeat="it in periods" value="{{it | lowercase}}">{{it}}</option>
+                            </select>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link container-fluid" href="#">
+                            <input class="form-control input-fullwidth" id="since" name="since" type="number" min="0" required
+                                ng-model="since" placeholder="{{period + 's'}}" aria-label="Search">
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link container-fluid" href="#">
+                            <button class="btn btn-outline-light" type="submit"
+                                title="Get events from last {{since}} {{period + (since > 1 ? 's' : '')}}">Get</button>
+                        </a>
+                    </li>
+                </ul>
             </form>
         </div>
     </nav>
