@@ -70,7 +70,7 @@ EthClient.prototype.getEvents = function getEvents(period, unitsfrom, unitsTo, c
 					toBlock: blockNumber - toValue
 				}, callback);
 			} else {
-				callback(new Error("Invalid period: " + period);
+				callback(new Error("Invalid period: " + period));
 			}
 		} else {
 			callback(err, null);
