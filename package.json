@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/rodoufu/ens-events#readme",
   "dependencies": {
-    "async": "^2.6.2",
+    "async": "^3.2.2",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "method-override": "^3.0.0",
