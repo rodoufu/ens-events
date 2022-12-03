@@ -28,7 +28,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "method-override": "^3.0.0",
-    "web3": "^1.0.0-beta.46"
+    "web3": "^1.8.1"
   },
   "devDependencies": {
     "tape": "^4.10.1"
